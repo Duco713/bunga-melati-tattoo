@@ -150,8 +150,17 @@
         z-index: 10;
     }
     /* Mobile menu */
-    #mobile-menu { transition: transform 0.25s ease-out; }
-    #mobile-menu.hidden-menu { transform: translateY(-100%); pointer-events: none; }
+    #mobile-menu {
+        transition: transform 0.25s ease-out, opacity 0.2s ease-out, visibility 0.25s;
+        z-index: -1;
+    }
+    #mobile-menu.hidden-menu {
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    #mobile-menu:not(.hidden-menu) { z-index: 40; }
     /* Form confirmation */
     #form-success { display: none; }
     #form-success.show { display: flex; }

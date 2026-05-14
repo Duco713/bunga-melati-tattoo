@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BUNGA MELATI | TRADITION INKED IN BONE</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Images/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="64x64" href="Images/favicon-64.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="Images/apple-touch-icon.png"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-secondary-fixed": "#410005",
+                    "on-tertiary-fixed-variant": "#454749",
+                    "on-primary": "#ffffff",
+                    "inverse-primary": "#c9c6c5",
+                    "tertiary-fixed": "#e2e2e4",
+                    "inverse-surface": "#303030",
+                    "surface-dim": "#dcd9d9",
+                    "secondary-fixed": "#ffdad7",
+                    "surface-bright": "#fbf9f8",
+                    "primary-fixed": "#e5e2e1",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "outline-variant": "#c4c7c7",
+                    "surface-tint": "#5f5e5e",
+                    "background": "#fbf9f8",
+                    "tertiary-container": "#1a1c1d",
+                    "surface-container-highest": "#e4e2e1",
+                    "secondary": "#bb0021",
+                    "error-container": "#ffdad6",
+                    "primary": "#000000",
+                    "on-surface-variant": "#444748",
+                    "outline": "#747878",
+                    "on-primary-container": "#858383",
+                    "on-tertiary-fixed": "#1a1c1d",
+                    "primary-fixed-dim": "#c9c6c5",
+                    "secondary-fixed-dim": "#ffb3af",
+                    "surface-container-high": "#eae8e7",
+                    "surface-variant": "#e4e2e1",
+                    "on-secondary-container": "#fffbff",
+                    "on-secondary": "#ffffff",
+                    "secondary-container": "#e61730",
+                    "on-surface": "#1b1c1c",
+                    "on-background": "#1b1c1c",
+                    "on-secondary-fixed-variant": "#930018",
+                    "surface": "#fbf9f8",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary-fixed-variant": "#474646",
+                    "primary-container": "#1c1b1b",
+                    "tertiary": "#000000",
+                    "on-tertiary-container": "#838486",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-error-container": "#93000a",
+                    "tertiary-fixed-dim": "#c6c6c8"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+                },
+                "spacing": {
+                    "border-heavy": "3px",
+                    "border-thin": "1px",
+                    "gutter": "24px",
+                    "unit": "4px",
+                    "margin-mobile": "16px",
+                    "margin-desktop": "64px"
+                },
+                "fontFamily": {
+                    "label-caps": ["Space Mono"],
+                    "caption": ["Space Mono"],
+                    "headline-lg": ["Bodoni Moda"],
+                    "headline-md": ["Bodoni Moda"],
+                    "headline-lg-mobile": ["Bodoni Moda"],
+                    "display-lg": ["Bodoni Moda"],
+                    "body-lg": ["Space Mono"],
+                    "body-md": ["Space Mono"]
+                },
+                "fontSize": {
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "caption": ["12px", {"lineHeight": "1.4", "fontWeight": "400"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "headline-md": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "800"}],
+                    "display-lg": ["80px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                }
+            },
+        },
+    }
+</script>
+<style>
+    html { scroll-behavior: smooth; }
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body {
+        background-color: #fbf9f8;
+        color: #1b1c1c;
+    }
+    .hard-shadow {
+        box-shadow: 8px 8px 0px 0px #000000;
+    }
+    .hard-shadow-sm {
+        box-shadow: 4px 4px 0px 0px #000000;
+    }
+    .press-effect {
+        transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background-color 0.12s ease-out;
+    }
+    .press-effect.hard-shadow:hover {
+        transform: translate(8px, 8px);
+        box-shadow: 0 0 0 0 #000000;
+    }
+    .press-effect.hard-shadow-sm:hover {
+        transform: translate(4px, 4px);
+        box-shadow: 0 0 0 0 #000000;
+    }
+    .stipple-bg {
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.05;
+        pointer-events: none;
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+    }
+    /* Mobile menu */
+    #mobile-menu { transition: transform 0.25s ease-out; }
+    #mobile-menu.hidden-menu { transform: translateY(-100%); pointer-events: none; }
+    /* Form confirmation */
+    #form-success { display: none; }
+    #form-success.show { display: flex; }
+</style>
+</head>
+<body class="font-body-md text-body-md overflow-x-hidden">
+<div class="stipple-bg"></div>
+
+<!-- TopNavBar -->
+<nav class="bg-surface border-b-heavy border-primary w-full sticky top-0 z-50">
+    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+        <a href="#top" class="flex items-center gap-3">
+            <img src="Images/Logo-circle.png" alt="Bunga Melati logo" class="w-10 h-10 object-cover rounded-full"/>
+            <span class="text-headline-md font-headline-md font-black tracking-tighter text-primary hidden sm:inline">BUNGA MELATI</span>
+        </a>
+        <div class="hidden md:flex gap-8 items-center">
+            <a class="text-primary font-label-caps text-label-caps hover:text-secondary transition-none" href="#top">HOME</a>
+            <a class="text-primary font-label-caps text-label-caps hover:text-secondary transition-none" href="#artists">ARTIESTEN</a>
+            <a class="text-primary font-label-caps text-label-caps hover:text-secondary transition-none" href="#portfolio">TATTOOS</a>
+            <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-6 py-2 border-heavy border-primary hard-shadow-sm press-effect">BOOKING</a>
+        </div>
+        <button id="menu-toggle" class="md:hidden" aria-label="Open menu">
+            <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+        </button>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden-menu absolute top-full left-0 w-full bg-surface border-b-heavy border-primary flex flex-col">
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#top">HOME</a>
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#artists">ARTIESTEN</a>
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#portfolio">TATTOOS</a>
+        <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-margin-mobile py-4 text-center">BOOKING</a>
+    </div>
+</nav>
+
+<main class="relative" id="top">
+    <!-- Hero Section -->
+    <section class="min-h-screen relative flex flex-col md:flex-row items-stretch border-b-heavy border-primary overflow-hidden">
+        <div class="w-full md:w-1/2 flex flex-col justify-center p-margin-mobile md:p-margin-desktop z-20">
+            <div class="inline-block border-thin border-primary px-3 py-1 mb-8 self-start font-label-caps text-label-caps">EST. 2023</div>
+            <h1 class="font-display-lg text-display-lg uppercase leading-none mb-8">
+                INKT &amp; <br/>ERFGOED
+            </h1>
+            <p class="font-body-lg text-body-lg max-w-md mb-12">
+                Traditionele Indonesische en Polynesische motieven, opnieuw verbeeld voor de moderne ziel.
+                Wij tatoeëren niet alleen de huid; we graveren verhalen.
+            </p>
+            <div class="flex flex-wrap gap-4">
+                <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect">BOEK NU</a>
+                <a href="#portfolio" class="bg-surface text-primary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect">ONTDEK STIJLEN</a>
+            </div>
+        </div>
+        <div class="w-full md:w-1/2 relative min-h-[500px]">
+            <img alt="Tattoo flash being sketched in the Bunga Melati studio" class="absolute inset-0 w-full h-full object-cover filter contrast-125 grayscale" src="Images/Screenshot 2026-05-13 at 21.04.51.png"/>
+        </div>
+    </section>
+
+    <!-- The Artisans -->
+    <section id="artists" class="p-margin-mobile md:p-margin-desktop border-b-heavy border-primary bg-surface-container-low scroll-mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+            <div class="md:col-span-7 relative">
+                <div class="border-heavy border-primary hard-shadow overflow-hidden bg-white">
+                    <img alt="The Bunga Melati artisans in their studio" class="w-full h-auto grayscale" src="Images/Screenshot 2026-05-13 at 21.04.12.png"/>
+                </div>
+                <div class="absolute -top-6 -right-6 bg-primary text-on-primary px-6 py-4 border-heavy border-primary font-label-caps text-label-caps z-10">
+                    DE MEESTERS
+                </div>
+            </div>
+            <div class="md:col-span-5 space-y-12">
+                <div class="space-y-4">
+                    <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">MANUIA</span>
+                    <h2 class="font-headline-lg text-headline-lg italic">Polynesische precisie</h2>
+                    <p class="font-body-md text-body-md leading-relaxed">
+                        Onze experts in Polynesische stijlen brengen eeuwenoude geometrische patronen tot leven met een wiskundige nauwkeurigheid die de natuurlijke contouren van het lichaam volgt. Elke lijn is een ritueel van identiteit.
+                    </p>
+                </div>
+                <div id="studio" class="space-y-4 scroll-mt-20">
+                    <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">SELAMAT</span>
+                    <h2 class="font-headline-lg text-headline-lg italic">Indonesische gastvrijheid</h2>
+                    <p class="font-body-md text-body-md leading-relaxed">
+                        Geworteld in de cultuur van Java en Bali. Bij Bunga Melati is de ervaring net zo belangrijk als het resultaat. We verwelkomen je in een ruimte waar respect voor erfgoed centraal staat.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Works -->
+    <section id="portfolio" class="border-b-heavy border-primary scroll-mt-20">
+        <div class="p-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
+            <div>
+                <h2 class="font-display-lg text-display-lg uppercase mb-4">RECREATIES</h2>
+                <p class="font-label-caps text-label-caps text-secondary-fixed-variant">RECENTE WERKEN UIT HET ARCHIEF</p>
+            </div>
+            <a href="#booking" class="font-label-caps text-label-caps border-b-heavy border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors">BOEK CONSULT</a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <!-- Gallery Item 1 -->
+            <div class="border-r-heavy border-primary border-b-heavy md:border-b-0 group cursor-crosshair">
+                <div class="p-6">
+                    <div class="relative overflow-hidden mb-4">
+                        <img alt="Borststuk met traditionele Balinese maskers" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.07.14.png"/>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-primary pt-4">
+                        <span class="font-label-caps text-label-caps">ID: BM-204</span>
+                        <span class="font-caption text-caption uppercase">BORSTSTUK / MASKS</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 2 -->
+            <div class="border-r-heavy border-primary border-b-heavy md:border-b-0 group cursor-crosshair bg-primary text-on-primary">
+                <div class="p-6">
+                    <div class="relative overflow-hidden mb-4 border-heavy border-on-primary">
+                        <img alt="Hand tattoo van zon en maan" class="w-full h-[500px] object-cover contrast-150 transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.06.49.png"/>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-on-primary pt-4">
+                        <span class="font-label-caps text-label-caps">ID: BM-801</span>
+                        <span class="font-caption text-caption uppercase">HANDWERK / KOSMOS</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Gallery Item 3 -->
+            <div class="group cursor-crosshair border-b-heavy md:border-b-0 border-primary">
+                <div class="p-6">
+                    <div class="relative overflow-hidden mb-4">
+                        <img alt="Origineel flash artwork met Polynesische patronen" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.05.27.png"/>
+                    </div>
+                    <div class="flex justify-between items-center border-t border-primary pt-4">
+                        <span class="font-label-caps text-label-caps">ID: BM-309</span>
+                        <span class="font-caption text-caption uppercase">ORIGINEEL / FLASH</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section id="booking" class="bg-surface p-margin-mobile md:p-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-12 relative overflow-hidden scroll-mt-20">
+        <div class="md:col-span-5 z-10">
+            <h2 class="font-display-lg text-display-lg uppercase mb-8">VRAAG EEN CONSULTATIE AAN</h2>
+            <p class="font-body-lg text-body-lg mb-12">
+                Elk groot werk begint met een gesprek. We bespreken je visie, de symboliek en de plaatsing voordat we de eerste druppel inkt zetten.
+            </p>
+            <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary">location_on</span>
+                    <div class="font-label-caps text-label-caps">
+                        BUNGA MELATI TATTOO STUDIO<br/>
+                        AMSTERDAM, NEDERLAND
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary">mail</span>
+                    <a href="mailto:contact@bungamelati.com" class="font-label-caps text-label-caps hover:underline">CONTACT@BUNGAMELATI.COM</a>
+                </div>
+            </div>
+        </div>
+        <div class="md:col-span-7 z-10">
+            <form id="booking-form" class="bg-white border-heavy border-primary p-8 hard-shadow space-y-8" novalidate>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="flex flex-col">
+                        <label for="name" class="font-label-caps text-label-caps mb-2">NAAM</label>
+                        <input id="name" name="name" required class="border-0 border-b-heavy border-primary bg-transparent focus:ring-0 focus:border-secondary transition-colors font-body-md p-2" placeholder="NAAM ACHTERNAAM" type="text"/>
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="email" class="font-label-caps text-label-caps mb-2">EMAIL</label>
+                        <input id="email" name="email" required class="border-0 border-b-heavy border-primary bg-transparent focus:ring-0 focus:border-secondary transition-colors font-body-md p-2" placeholder="EMAIL@ADRES.NL" type="email"/>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <label for="description" class="font-label-caps text-label-caps mb-2">PROJECT BESCHRIJVING</label>
+                    <textarea id="description" name="description" required class="border-0 border-b-heavy border-primary bg-transparent focus:ring-0 focus:border-secondary transition-colors font-body-md p-2 resize-none" placeholder="BESCHRIJF JE IDEE, GROOTTE EN PLAATSING..." rows="4"></textarea>
+                </div>
+                <div class="flex items-center gap-4">
+                    <input class="w-6 h-6 border-heavy border-primary text-secondary focus:ring-0 rounded-none" id="terms" required type="checkbox"/>
+                    <label class="font-caption text-caption uppercase cursor-pointer" for="terms">IK GA AKKOORD MET DE VOORWAARDEN EN DE PRIVACY POLICY</label>
+                </div>
+                <p id="form-error" class="font-caption text-caption text-secondary hidden">VUL ALLE VELDEN IN EN ACCEPTEER DE VOORWAARDEN.</p>
+                <button class="w-full bg-secondary text-on-secondary py-6 font-label-caps text-label-caps border-heavy border-primary hard-shadow-sm press-effect" type="submit">VERZEND AANVRAAG</button>
+                <div id="form-success" class="items-start gap-4 border-heavy border-primary p-6 bg-surface-container-low">
+                    <span class="material-symbols-outlined text-secondary">check_circle</span>
+                    <div>
+                        <p class="font-label-caps text-label-caps mb-2">AANVRAAG VERZONDEN</p>
+                        <p class="font-caption text-caption">Je e-mailprogramma is geopend met je aanvraag. Verstuur de e-mail om je consult af te ronden &mdash; we reageren binnen 48 uur.</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-primary text-on-primary flex flex-col md:flex-row justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-12 gap-8 border-t-heavy border-on-primary relative z-20">
+    <div class="space-y-4 text-center md:text-left">
+        <div class="font-headline-lg text-headline-lg-mobile text-on-primary">BUNGA MELATI</div>
+        <p class="font-label-caps text-label-caps opacity-60">©2023&ndash;2026 BUNGA MELATI TATTOO STUDIO. TRADITION INKED IN BONE.</p>
+    </div>
+    <div class="flex flex-wrap justify-center gap-8">
+        <a class="font-label-caps text-label-caps text-on-primary-fixed-variant hover:underline decoration-heavy" href="https://instagram.com" target="_blank" rel="noopener">INSTAGRAM</a>
+        <a class="font-label-caps text-label-caps text-on-primary-fixed-variant hover:underline decoration-heavy" href="https://maps.google.com/?q=Amsterdam" target="_blank" rel="noopener">DIRECTIONS</a>
+        <a class="font-label-caps text-label-caps text-on-primary-fixed-variant hover:underline decoration-heavy" href="#">PRIVACY</a>
+        <a class="font-label-caps text-label-caps text-on-primary-fixed-variant hover:underline decoration-heavy" href="#">TERMS</a>
+    </div>
+    <div class="flex gap-4">
+        <a href="#top" class="w-10 h-10 border border-on-primary flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer" aria-label="Back to top">
+            <span class="material-symbols-outlined text-sm">north</span>
+        </a>
+        <a href="mailto:contact@bungamelati.com" class="w-10 h-10 border border-on-primary flex items-center justify-center hover:bg-secondary transition-colors cursor-pointer" aria-label="Email us">
+            <span class="material-symbols-outlined text-sm">mail</span>
+        </a>
+    </div>
+</footer>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
+
+    menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden-menu');
+        mobileMenu.classList.toggle('hidden-menu');
+        menuIcon.textContent = isOpen ? 'menu' : 'close';
+    });
+
+    // Close mobile menu when a link is tapped
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden-menu');
+            menuIcon.textContent = 'menu';
+        });
+    });
+
+    // Booking form submission via mailto
+    const form = document.getElementById('booking-form');
+    const formError = document.getElementById('form-error');
+    const formSuccess = document.getElementById('form-success');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const description = form.description.value.trim();
+        const terms = form.terms.checked;
+
+        const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+        if (!name || !emailValid || !description || !terms) {
+            formError.classList.remove('hidden');
+            formSuccess.classList.remove('show');
+            return;
+        }
+        formError.classList.add('hidden');
+
+        const subject = encodeURIComponent(`Consult aanvraag — ${name}`);
+        const body = encodeURIComponent(
+            `Naam: ${name}\nEmail: ${email}\n\nProject:\n${description}\n`
+        );
+        window.location.href = `mailto:contact@bungamelati.com?subject=${subject}&body=${body}`;
+        formSuccess.classList.add('show');
+    });
+</script>
+</body>
+</html>

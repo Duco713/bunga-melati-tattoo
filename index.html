@@ -120,13 +120,26 @@
     .press-effect {
         transition: transform 0.12s ease-out, box-shadow 0.12s ease-out, background-color 0.12s ease-out;
     }
-    .press-effect.hard-shadow:hover {
-        transform: translate(8px, 8px);
-        box-shadow: 0 0 0 0 #000000;
+    @media (hover: hover) {
+        .press-effect.hard-shadow:hover {
+            transform: translate(8px, 8px);
+            box-shadow: 0 0 0 0 #000000;
+        }
+        .press-effect.hard-shadow-sm:hover {
+            transform: translate(4px, 4px);
+            box-shadow: 0 0 0 0 #000000;
+        }
     }
-    .press-effect.hard-shadow-sm:hover {
+    .press-effect:active {
         transform: translate(4px, 4px);
         box-shadow: 0 0 0 0 #000000;
+    }
+    /* Mobile-only typography + shadow trims */
+    @media (max-width: 767px) {
+        .text-display-lg { font-size: 44px !important; line-height: 1 !important; letter-spacing: -0.02em !important; }
+        .text-headline-lg { font-size: 30px !important; }
+        .hard-shadow { box-shadow: 5px 5px 0px 0px #000000; }
+        .hard-shadow-sm { box-shadow: 3px 3px 0px 0px #000000; }
     }
     .stipple-bg {
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
@@ -160,51 +173,51 @@
             <a class="text-primary font-label-caps text-label-caps hover:text-secondary transition-none" href="#portfolio">TATTOOS</a>
             <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-6 py-2 border-heavy border-primary hard-shadow-sm press-effect">BOOKING</a>
         </div>
-        <button id="menu-toggle" class="md:hidden" aria-label="Open menu">
-            <span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+        <button id="menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center border-thin border-primary" aria-label="Open menu" aria-expanded="false">
+            <span class="material-symbols-outlined text-primary" style="font-size: 28px;">menu</span>
         </button>
     </div>
     <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden hidden-menu absolute top-full left-0 w-full bg-surface border-b-heavy border-primary flex flex-col">
-        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#top">HOME</a>
-        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#artists">ARTIESTEN</a>
-        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-4 border-b border-primary" href="#portfolio">TATTOOS</a>
-        <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-margin-mobile py-4 text-center">BOOKING</a>
+    <div id="mobile-menu" class="md:hidden hidden-menu absolute top-full left-0 w-full bg-surface border-b-heavy border-primary flex flex-col shadow-lg">
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-5 border-b border-primary active:bg-surface-container" href="#top">HOME</a>
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-5 border-b border-primary active:bg-surface-container" href="#artists">ARTIESTEN</a>
+        <a class="text-primary font-label-caps text-label-caps px-margin-mobile py-5 border-b border-primary active:bg-surface-container" href="#portfolio">TATTOOS</a>
+        <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-margin-mobile py-5 text-center active:bg-primary">BOOKING</a>
     </div>
 </nav>
 
 <main class="relative" id="top">
     <!-- Hero Section -->
-    <section class="min-h-screen relative flex flex-col md:flex-row items-stretch border-b-heavy border-primary overflow-hidden">
-        <div class="w-full md:w-1/2 flex flex-col justify-center p-margin-mobile md:p-margin-desktop z-20">
-            <div class="flex flex-wrap items-center gap-3 mb-8">
+    <section class="md:min-h-screen relative flex flex-col md:flex-row items-stretch border-b-heavy border-primary overflow-hidden">
+        <div class="w-full md:w-1/2 flex flex-col justify-center py-12 px-margin-mobile md:p-margin-desktop z-20">
+            <div class="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
                 <span class="inline-block border-thin border-primary px-3 py-1 font-label-caps text-label-caps">EST. 2023</span>
                 <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">VALKENSWAARD &middot; NL</span>
             </div>
-            <h1 class="font-display-lg text-display-lg uppercase leading-none mb-8">
+            <h1 class="font-display-lg text-display-lg uppercase leading-none mb-6 md:mb-8">
                 EEN ODE<br/>IN INKT
             </h1>
-            <p class="font-body-lg text-body-lg max-w-md mb-12">
+            <p class="font-body-lg text-body-lg max-w-md mb-8 md:mb-12">
                 De Melati is een Indische bloem uit het moederland. Ze staat voor gevoel, vergankelijkheid en het niet-vergeten. Wij graveren herinnering, niet alleen huid.
             </p>
-            <div class="flex flex-wrap gap-4">
-                <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect">BOEK NU</a>
-                <a href="#portfolio" class="bg-surface text-primary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect">ONTDEK STIJLEN</a>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect text-center">BOEK NU</a>
+                <a href="#portfolio" class="bg-surface text-primary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect text-center">ONTDEK STIJLEN</a>
             </div>
         </div>
-        <div class="w-full md:w-1/2 relative min-h-[500px]">
+        <div class="w-full md:w-1/2 relative h-[300px] md:h-auto md:min-h-[500px]">
             <img alt="Tattoo flash being sketched in the Bunga Melati studio" class="absolute inset-0 w-full h-full object-cover filter contrast-125 grayscale" src="Images/Screenshot 2026-05-13 at 21.04.51.png"/>
         </div>
     </section>
 
     <!-- The Artisans -->
-    <section id="artists" class="p-margin-mobile md:p-margin-desktop border-b-heavy border-primary bg-surface-container-low scroll-mt-20">
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+    <section id="artists" class="py-12 px-margin-mobile md:p-margin-desktop border-b-heavy border-primary bg-surface-container-low scroll-mt-20">
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div class="md:col-span-7 relative">
                 <div class="border-heavy border-primary hard-shadow overflow-hidden bg-white">
                     <img alt="The Bunga Melati artisans in their studio" class="w-full h-auto grayscale" src="Images/Screenshot 2026-05-13 at 21.04.12.png"/>
                 </div>
-                <div class="absolute -top-6 -right-6 bg-primary text-on-primary px-6 py-4 border-heavy border-primary font-label-caps text-label-caps z-10">
+                <div class="absolute top-2 right-2 md:-top-6 md:-right-6 bg-primary text-on-primary px-4 py-3 md:px-6 md:py-4 border-heavy border-primary font-label-caps text-label-caps z-10">
                     DE MEESTERS
                 </div>
             </div>
@@ -229,7 +242,7 @@
 
     <!-- Selected Works -->
     <section id="portfolio" class="border-b-heavy border-primary scroll-mt-20">
-        <div class="p-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
+        <div class="py-8 px-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
             <div>
                 <h2 class="font-display-lg text-display-lg uppercase mb-4">INKTWERK</h2>
                 <p class="font-label-caps text-label-caps text-secondary-fixed-variant">RECENTE WERKEN UIT HET ARCHIEF</p>
@@ -241,7 +254,7 @@
             <div class="border-r-heavy border-primary border-b-heavy md:border-b-0 group cursor-crosshair">
                 <div class="p-6">
                     <div class="relative overflow-hidden mb-4">
-                        <img alt="Borststuk met traditionele Balinese maskers" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.07.14.png"/>
+                        <img alt="Borststuk met traditionele Balinese maskers" class="w-full h-[340px] md:h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.07.14.png"/>
                     </div>
                     <div class="flex justify-between items-center border-t border-primary pt-4">
                         <span class="font-label-caps text-label-caps">ID: BM-204</span>
@@ -253,7 +266,7 @@
             <div class="border-r-heavy border-primary border-b-heavy md:border-b-0 group cursor-crosshair bg-primary text-on-primary">
                 <div class="p-6">
                     <div class="relative overflow-hidden mb-4 border-heavy border-on-primary">
-                        <img alt="Hand tattoo van zon en maan" class="w-full h-[500px] object-cover brightness-125 transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.06.49.png"/>
+                        <img alt="Hand tattoo van zon en maan" class="w-full h-[340px] md:h-[500px] object-cover brightness-125 transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.06.49.png"/>
                     </div>
                     <div class="flex justify-between items-center border-t border-on-primary pt-4">
                         <span class="font-label-caps text-label-caps">ID: BM-801</span>
@@ -265,7 +278,7 @@
             <div class="group cursor-crosshair border-b-heavy md:border-b-0 border-primary">
                 <div class="p-6">
                     <div class="relative overflow-hidden mb-4">
-                        <img alt="Origineel flash artwork met Polynesische patronen" class="w-full h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.05.27.png"/>
+                        <img alt="Origineel flash artwork met Polynesische patronen" class="w-full h-[340px] md:h-[500px] object-cover grayscale transition-transform duration-700 group-hover:scale-105" src="Images/Screenshot 2026-05-13 at 21.05.27.png"/>
                     </div>
                     <div class="flex justify-between items-center border-t border-primary pt-4">
                         <span class="font-label-caps text-label-caps">ID: BM-309</span>
@@ -277,7 +290,7 @@
     </section>
 
     <!-- Booking Form Section -->
-    <section id="booking" class="bg-surface p-margin-mobile md:p-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-12 relative overflow-hidden scroll-mt-20">
+    <section id="booking" class="bg-surface py-12 px-margin-mobile md:p-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative overflow-hidden scroll-mt-20">
         <div class="md:col-span-5 z-10">
             <h2 class="font-display-lg text-display-lg uppercase mb-8">VRAAG EEN CONSULTATIE AAN</h2>
             <p class="font-body-lg text-body-lg mb-12">
@@ -298,8 +311,8 @@
             </div>
         </div>
         <div class="md:col-span-7 z-10">
-            <form id="booking-form" class="bg-white border-heavy border-primary p-8 hard-shadow space-y-8" novalidate>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <form id="booking-form" class="bg-white border-heavy border-primary p-6 md:p-8 hard-shadow space-y-6 md:space-y-8" novalidate>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div class="flex flex-col">
                         <label for="name" class="font-label-caps text-label-caps mb-2">NAAM</label>
                         <input id="name" name="name" required class="border-0 border-b-heavy border-primary bg-transparent focus:ring-0 focus:border-secondary transition-colors font-body-md p-2" placeholder="NAAM ACHTERNAAM" type="text"/>
@@ -378,18 +391,32 @@
     const mobileMenu = document.getElementById('mobile-menu');
     const menuIcon = menuToggle.querySelector('.material-symbols-outlined');
 
+    function closeMenu() {
+        mobileMenu.classList.add('hidden-menu');
+        menuIcon.textContent = 'menu';
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open menu');
+    }
+    function openMenu() {
+        mobileMenu.classList.remove('hidden-menu');
+        menuIcon.textContent = 'close';
+        menuToggle.setAttribute('aria-expanded', 'true');
+        menuToggle.setAttribute('aria-label', 'Close menu');
+    }
+
     menuToggle.addEventListener('click', () => {
-        const isOpen = !mobileMenu.classList.contains('hidden-menu');
-        mobileMenu.classList.toggle('hidden-menu');
-        menuIcon.textContent = isOpen ? 'menu' : 'close';
+        if (mobileMenu.classList.contains('hidden-menu')) openMenu();
+        else closeMenu();
     });
 
     // Close mobile menu when a link is tapped
     mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden-menu');
-            menuIcon.textContent = 'menu';
-        });
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden-menu')) closeMenu();
     });
 
     // Booking form submission via mailto

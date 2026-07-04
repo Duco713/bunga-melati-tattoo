@@ -190,16 +190,69 @@
     .slide-cell.is-featured img {
         filter: brightness(1.25) !important;
     }
+    /* ===== Animaties ===== */
+    /* Scroll-reveal (alleen als JS actief is, anders gewoon zichtbaar) */
+    html.js .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        will-change: opacity, transform;
+    }
+    html.js .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+    }
+    /* Hero-intro */
+    html.js .hero-anim {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: heroIn 0.8s ease-out forwards;
+    }
+    @keyframes heroIn { to { opacity: 1; transform: none; } }
+    /* Lopende tekstband */
+    .marquee { overflow: hidden; }
+    .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 55s linear infinite;
+    }
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+    .marquee-group { display: inline-flex; align-items: center; white-space: nowrap; }
+    .marquee-group > span { padding: 0 1.25rem; }
+    @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    /* Nav compacter bij scrollen */
+    #topnav .nav-inner { transition: padding 0.3s ease; }
+    #topnav.nav-compact .nav-inner { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+    #topnav .nav-logo { transition: width 0.3s ease, height 0.3s ease; }
+    #topnav.nav-compact .nav-logo { width: 2rem; height: 2rem; }
+    /* Hint-animatie voor de voor/na-slider */
+    .ba-slider.ba-anim .ba-before,
+    .ba-slider.ba-anim .ba-divider,
+    .ba-slider.ba-anim .ba-handle {
+        transition: clip-path 0.7s ease-in-out, left 0.7s ease-in-out;
+    }
+    /* Respecteer voorkeur voor minder beweging */
+    @media (prefers-reduced-motion: reduce) {
+        html.js .reveal, html.js .hero-anim {
+            opacity: 1 !important;
+            transform: none !important;
+            transition: none !important;
+            animation: none !important;
+        }
+        .marquee-track { animation: none !important; }
+        #topnav .nav-inner, #topnav .nav-logo { transition: none !important; }
+    }
 </style>
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="font-body-md text-body-md overflow-x-hidden">
 <div class="stipple-bg"></div>
 
 <!-- TopNavBar -->
-<nav class="bg-surface border-b-heavy border-primary w-full sticky top-0 z-50">
-    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
+<nav id="topnav" class="bg-surface border-b-heavy border-primary w-full sticky top-0 z-50">
+    <div class="nav-inner flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4">
         <a href="#top" class="flex items-center gap-3">
-            <img src="Images/Logo-circle.png" alt="Bunga Melati logo" class="w-10 h-10 object-cover rounded-full"/>
+            <img src="Images/Logo-circle.png" alt="Bunga Melati logo" class="nav-logo w-10 h-10 object-cover rounded-full"/>
             <span class="text-headline-md font-headline-md tracking-tighter text-primary hidden sm:inline">BUNGA MELATI</span>
         </a>
         <div class="hidden md:flex gap-8 items-center">
@@ -223,19 +276,19 @@
 
 <main class="relative" id="top">
     <!-- Hero Section -->
-    <section class="md:min-h-screen relative flex flex-col md:flex-row items-stretch border-b-heavy border-primary overflow-hidden">
+    <section id="hero" class="md:min-h-[calc(100vh-7.25rem)] relative flex flex-col md:flex-row items-stretch border-b-heavy border-primary overflow-hidden">
         <div class="w-full md:w-1/2 flex flex-col justify-center py-12 px-margin-mobile md:p-margin-desktop z-20">
-            <div class="flex flex-wrap items-center gap-3 mb-6 md:mb-8">
+            <div class="hero-anim flex flex-wrap items-center gap-3 mb-6 md:mb-8" style="animation-delay: 0.05s;">
                 <span class="inline-block border-thin border-primary px-3 py-1 font-label-caps text-label-caps">EST. 2023</span>
                 <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">VALKENSWAARD &middot; NL</span>
             </div>
-            <h1 class="font-display-lg text-display-lg uppercase leading-none mb-6 md:mb-8">
+            <h1 class="hero-anim font-display-lg text-display-lg uppercase leading-none mb-6 md:mb-8" style="animation-delay: 0.15s;">
                 EEN ODE<br/>IN INKT
             </h1>
-            <p class="font-body-lg text-body-lg max-w-md mb-8 md:mb-12">
+            <p class="hero-anim font-body-lg text-body-lg max-w-md mb-8 md:mb-12" style="animation-delay: 0.25s;">
                 De Melati is een Indische bloem uit het moederland. Ze staat voor gevoel, vergankelijkheid en het niet-vergeten. Wij graveren herinnering, niet alleen huid.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4">
+            <div class="hero-anim flex flex-col sm:flex-row gap-4" style="animation-delay: 0.35s;">
                 <a href="#booking" class="bg-secondary text-on-secondary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect text-center">BOEK NU</a>
                 <a href="#portfolio" class="bg-surface text-primary font-label-caps text-label-caps px-10 py-4 border-heavy border-primary hard-shadow press-effect text-center">ONTDEK STIJLEN</a>
             </div>
@@ -245,9 +298,29 @@
         </div>
     </section>
 
+    <!-- Lopende tekstband -->
+    <div class="marquee bg-primary text-on-primary border-b-heavy border-primary py-3" aria-hidden="true">
+        <div class="marquee-track font-label-caps text-label-caps">
+            <div class="marquee-group">
+                <span>TRADITION INKED IN BONE</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>JANGAN LUPA &middot; NIET VERGETEN</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>EEN ODE IN INKT</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>VALKENSWAARD &middot; NL</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>EST. 2023</span><span class="text-secondary-fixed-dim">&loz;</span>
+            </div>
+            <div class="marquee-group">
+                <span>TRADITION INKED IN BONE</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>JANGAN LUPA &middot; NIET VERGETEN</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>EEN ODE IN INKT</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>VALKENSWAARD &middot; NL</span><span class="text-secondary-fixed-dim">&loz;</span>
+                <span>EST. 2023</span><span class="text-secondary-fixed-dim">&loz;</span>
+            </div>
+        </div>
+    </div>
+
     <!-- The Artisans -->
     <section id="artists" class="border-b-heavy border-primary scroll-mt-20">
-        <div class="py-8 px-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
+        <div class="reveal py-8 px-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
             <div>
                 <h2 class="font-display-lg text-display-lg uppercase mb-4">DE ARTIESTEN</h2>
                 <p class="font-label-caps text-label-caps text-secondary-fixed-variant">DE HANDEN ACHTER BUNGA MELATI</p>
@@ -256,7 +329,7 @@
         </div>
 
         <!-- Artist 01: Kenneth (portrait left) -->
-        <article class="border-b-heavy border-primary bg-surface-container-low">
+        <article class="reveal border-b-heavy border-primary bg-surface-container-low">
             <div class="px-margin-mobile md:px-margin-desktop py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
                 <div class="md:col-span-5 relative">
                     <div class="border-heavy border-primary hard-shadow overflow-hidden bg-white">
@@ -291,7 +364,7 @@
         </article>
 
         <!-- Artist 02: Martijn "Tinus" de Vries (portrait right) -->
-        <article class="border-b-heavy border-primary bg-white">
+        <article class="reveal border-b-heavy border-primary bg-white">
             <div class="px-margin-mobile md:px-margin-desktop py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
                 <div class="md:col-span-7 md:order-1 order-2 space-y-5">
                     <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">MARTIJN &lsquo;TINUS&rsquo; DE VRIES</span>
@@ -335,7 +408,7 @@
         </article>
 
         <!-- Artist 03: Jill — J'Roa Tatau (portrait left) -->
-        <article class="bg-surface-container-low">
+        <article class="reveal bg-surface-container-low">
             <div class="px-margin-mobile md:px-margin-desktop py-12 md:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
                 <div class="md:col-span-5 relative">
                     <div class="border-heavy border-primary hard-shadow overflow-hidden bg-white">
@@ -372,7 +445,7 @@
 
     <!-- Selected Works -->
     <section id="portfolio" class="border-b-heavy border-primary scroll-mt-20">
-        <div class="py-8 px-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
+        <div class="reveal py-8 px-margin-mobile md:p-margin-desktop flex justify-between items-end border-b-heavy border-primary bg-white gap-6 flex-wrap">
             <div>
                 <h2 class="font-display-lg text-display-lg uppercase mb-4">INKTWERK</h2>
                 <p class="font-label-caps text-label-caps text-secondary-fixed-variant">RECENTE WERKEN UIT HET ARCHIEF</p>
@@ -498,7 +571,7 @@
 
     <!-- Booking Form Section -->
     <section id="booking" class="bg-surface py-12 px-margin-mobile md:p-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 relative overflow-hidden scroll-mt-20">
-        <div class="md:col-span-5 z-10">
+        <div class="reveal md:col-span-5 z-10">
             <h2 class="font-display-lg text-display-lg uppercase mb-8">VRAAG EEN CONSULTATIE AAN</h2>
             <p class="font-body-lg text-body-lg mb-12">
                 Elk groot werk begint met een gesprek. We bespreken je visie, de symboliek en de plaatsing voordat we de eerste druppel inkt zetten.
@@ -535,7 +608,7 @@
                     allowfullscreen></iframe>
             </div>
         </div>
-        <div class="md:col-span-7 z-10">
+        <div class="reveal md:col-span-7 z-10">
             <form id="booking-form" class="bg-white border-heavy border-primary p-6 md:p-8 hard-shadow space-y-6 md:space-y-8" novalidate>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
                     <div class="flex flex-col">
@@ -575,28 +648,28 @@
                 </div>
             </form>
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                <div class="reveal border-heavy border-primary bg-white p-5 flex items-start gap-3" style="transition-delay: 0.05s;">
                     <span class="material-symbols-outlined text-secondary">schedule</span>
                     <div>
                         <p class="font-label-caps text-label-caps mb-1">BINNEN 48 UUR</p>
                         <p class="font-caption text-caption">We reageren binnen twee dagen op je aanvraag.</p>
                     </div>
                 </div>
-                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                <div class="reveal border-heavy border-primary bg-white p-5 flex items-start gap-3" style="transition-delay: 0.12s;">
                     <span class="material-symbols-outlined text-secondary">payments</span>
                     <div>
                         <p class="font-label-caps text-label-caps mb-1">AANBETALING</p>
                         <p class="font-caption text-caption">Je afspraak wordt vastgelegd met een aanbetaling.</p>
                     </div>
                 </div>
-                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                <div class="reveal border-heavy border-primary bg-white p-5 flex items-start gap-3" style="transition-delay: 0.19s;">
                     <span class="material-symbols-outlined text-secondary">badge</span>
                     <div>
                         <p class="font-label-caps text-label-caps mb-1">MIN. 18 JAAR</p>
                         <p class="font-caption text-caption">Neem een geldig legitimatiebewijs mee.</p>
                     </div>
                 </div>
-                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                <div class="reveal border-heavy border-primary bg-white p-5 flex items-start gap-3" style="transition-delay: 0.26s;">
                     <span class="material-symbols-outlined text-secondary">image</span>
                     <div>
                         <p class="font-label-caps text-label-caps mb-1">REFERENTIES</p>
@@ -610,7 +683,7 @@
 
 <!-- 15 augustus / Herdenking -->
 <section id="herdenking" class="bg-primary text-on-primary px-margin-mobile md:px-margin-desktop py-16 border-t-heavy border-on-primary relative z-20">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
+    <div class="reveal grid grid-cols-1 md:grid-cols-12 gap-8 items-start max-w-5xl mx-auto">
         <div class="md:col-span-4">
             <span class="font-label-caps text-label-caps text-secondary-fixed-dim">15 AUGUSTUS</span>
             <h2 class="font-headline-lg text-headline-lg italic mt-2">Een gedeeld verleden.</h2>
@@ -832,7 +905,35 @@
             return (x / rect.width) * 100;
         }
 
+        // Hint-animatie: slider gaat één keer zachtjes heen en weer
+        let hintTimers = [];
+        let hinted = false;
+        function clearHint() {
+            hintTimers.forEach(t => clearTimeout(t));
+            hintTimers = [];
+            slider.classList.remove('ba-anim');
+        }
+        function runHint() {
+            if (hinted) return;
+            hinted = true;
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            slider.classList.add('ba-anim');
+            setPos(68);
+            hintTimers.push(setTimeout(() => setPos(32), 800));
+            hintTimers.push(setTimeout(() => setPos(50), 1600));
+            hintTimers.push(setTimeout(clearHint, 2400));
+        }
+        if ('IntersectionObserver' in window) {
+            const hintObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) { runHint(); hintObserver.unobserve(entry.target); }
+                });
+            }, { threshold: 0.6 });
+            hintObserver.observe(slider);
+        }
+
         handle.addEventListener('pointerdown', (e) => {
+            clearHint();
             dragging = true;
             try { handle.setPointerCapture(e.pointerId); } catch (err) {}
             e.preventDefault();
@@ -851,6 +952,7 @@
 
         slider.addEventListener('click', (e) => {
             if (e.target.closest('#ba-handle')) return;
+            clearHint();
             setPos(pctFromEvent(e));
         });
 
@@ -912,6 +1014,65 @@
         window.location.href = `mailto:bungamelati.tattoo@gmail.com?subject=${subject}&body=${body}`;
         formSuccess.classList.add('show');
     });
+
+    // Scroll-reveal — elementen faden in zodra ze in beeld komen
+    (function() {
+        const reveals = document.querySelectorAll('.reveal');
+        if (!reveals.length) return;
+        if (!('IntersectionObserver' in window)) {
+            reveals.forEach(el => el.classList.add('is-visible'));
+            return;
+        }
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    io.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+        reveals.forEach(el => io.observe(el));
+    })();
+
+    // Lopende tekstband — vul zo dat één groep altijd breder is dan het scherm (naadloze loop)
+    (function() {
+        const track = document.querySelector('.marquee-track');
+        if (!track) return;
+        const container = track.parentElement;
+        const groups = track.querySelectorAll('.marquee-group');
+        if (groups.length < 2) return;
+        const base = groups[0].innerHTML;
+
+        function fill() {
+            // Reset naar één set om de basisbreedte te meten
+            groups.forEach(g => { g.innerHTML = base; });
+            const single = groups[0].offsetWidth;
+            if (!single) return;
+            const reps = Math.ceil(container.offsetWidth / single) + 1;
+            if (reps > 1) {
+                const filled = base.repeat(reps);
+                groups.forEach(g => { g.innerHTML = filled; });
+            }
+        }
+
+        fill();
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(fill, 200);
+        });
+    })();
+
+    // Nav compacter zodra je naar beneden scrollt
+    (function() {
+        const nav = document.getElementById('topnav');
+        if (!nav) return;
+        const onScroll = () => {
+            nav.classList.toggle('nav-compact', window.scrollY > 40);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
 </script>
 </body>
 </html>

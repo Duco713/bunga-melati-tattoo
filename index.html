@@ -297,10 +297,10 @@
                     <span class="font-label-caps text-label-caps text-secondary underline decoration-heavy">MARTIJN &lsquo;TINUS&rsquo; DE VRIES</span>
                     <h3 class="font-headline-lg text-headline-lg italic">Realisme &amp; cover-up.</h3>
                     <p class="font-body-md text-body-md leading-relaxed">
-                        This is me &mdash; Martijn, beter bekend als Tinus. 44 jaar, trotse vader van twee kids en bijna een jaar gelukkig getrouwd met mijn prachtige vrouw.
+                        Martijn, beter bekend als Tinus. Mede-eigenaar van Bunga Melati en al jaren thuis in realisme en cover-up werk.
                     </p>
                     <p class="font-body-md text-body-md leading-relaxed">
-                        Mede-eigenaar van Bunga Melati en gespecialiseerd in realistische cover-ups: oud werk transformeren tot een verhaal dat je weer met trots laat zien.
+                        Mijn specialisme is de realistische cover-up: oud of ongewenst werk transformeren tot een nieuw stuk waar je weer met trots mee loopt. Geen compromis op detail: schaduw, diepte en textuur, net zolang tot het klopt.
                     </p>
                     <div class="pt-4">
                         <div class="border-heavy border-primary hard-shadow-sm overflow-hidden mx-auto" style="max-width: 420px;">
@@ -483,11 +483,11 @@
                     <span class="material-symbols-outlined text-primary">chevron_left</span>
                 </button>
                 <div id="carousel-dots" class="flex gap-3" role="tablist" aria-label="Tattoo selectie">
-                    <button type="button" data-index="0" aria-label="Toon tattoo 1" class="w-3 h-3 border-thin border-primary bg-primary"></button>
-                    <button type="button" data-index="1" aria-label="Toon tattoo 2" class="w-3 h-3 border-thin border-primary bg-transparent"></button>
-                    <button type="button" data-index="2" aria-label="Toon tattoo 3" class="w-3 h-3 border-thin border-primary bg-transparent"></button>
-                    <button type="button" data-index="3" aria-label="Toon tattoo 4" class="w-3 h-3 border-thin border-primary bg-transparent"></button>
-                    <button type="button" data-index="4" aria-label="Toon tattoo 5" class="w-3 h-3 border-thin border-primary bg-transparent"></button>
+                    <button type="button" data-index="0" aria-label="Toon tattoo 1" class="w-3.5 h-3.5 border-2 border-primary bg-primary"></button>
+                    <button type="button" data-index="1" aria-label="Toon tattoo 2" class="w-3.5 h-3.5 border-2 border-primary bg-transparent"></button>
+                    <button type="button" data-index="2" aria-label="Toon tattoo 3" class="w-3.5 h-3.5 border-2 border-primary bg-transparent"></button>
+                    <button type="button" data-index="3" aria-label="Toon tattoo 4" class="w-3.5 h-3.5 border-2 border-primary bg-transparent"></button>
+                    <button type="button" data-index="4" aria-label="Toon tattoo 5" class="w-3.5 h-3.5 border-2 border-primary bg-transparent"></button>
                 </div>
                 <button id="carousel-next" type="button" aria-label="Volgende tattoo" class="w-12 h-12 bg-secondary text-on-secondary border-heavy border-primary hard-shadow-sm press-effect flex items-center justify-center">
                     <span class="material-symbols-outlined">chevron_right</span>
@@ -516,6 +516,23 @@
                     <span class="material-symbols-outlined text-secondary">mail</span>
                     <a href="mailto:bungamelati.tattoo@gmail.com" class="font-label-caps text-label-caps hover:underline">BUNGAMELATI.TATTOO@GMAIL.COM</a>
                 </div>
+                <div class="flex items-start gap-4">
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                    <div class="font-label-caps text-label-caps space-y-1">
+                        <div class="flex justify-between gap-6"><span>DINSDAG &ndash; ZATERDAG</span><span>10:00 &ndash; 17:00</span></div>
+                        <div class="flex justify-between gap-6"><span>ZONDAG &amp; MAANDAG</span><span class="text-secondary">GESLOTEN</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-10 border-heavy border-primary hard-shadow overflow-hidden">
+                <iframe
+                    title="Locatie Bunga Melati Tattoo Studio op Google Maps"
+                    src="https://www.google.com/maps?q=Nieuwe+Waalreseweg+6,+Valkenswaard,+Nederland&output=embed"
+                    class="w-full h-64 md:h-72 grayscale contrast-125"
+                    style="border:0; display:block;"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen></iframe>
             </div>
         </div>
         <div class="md:col-span-7 z-10">
@@ -534,6 +551,15 @@
                     <label for="description" class="font-label-caps text-label-caps mb-2">PROJECT BESCHRIJVING</label>
                     <textarea id="description" name="description" required class="border-0 border-b-heavy border-primary bg-transparent focus:ring-0 focus:border-secondary transition-colors font-body-md p-2 resize-none" placeholder="BESCHRIJF JE IDEE, GROOTTE EN PLAATSING..." rows="4"></textarea>
                 </div>
+                <div class="flex flex-col">
+                    <label for="attachment" class="font-label-caps text-label-caps mb-2">REFERENTIEBEELDEN <span class="text-on-primary-container">(OPTIONEEL)</span></label>
+                    <label for="attachment" class="border-heavy border-primary bg-surface-container-low px-4 py-4 flex items-center gap-3 cursor-pointer hover:bg-surface-container transition-colors">
+                        <span class="material-symbols-outlined text-secondary">attach_file</span>
+                        <span id="attachment-label" class="font-caption text-caption uppercase">KIES AFBEELDINGEN&hellip;</span>
+                    </label>
+                    <input id="attachment" name="attachment" type="file" accept="image/*" multiple class="sr-only"/>
+                    <p class="font-caption text-caption text-on-primary-container mt-2">Voeg de gekozen beelden bij in de e-mail die opent.</p>
+                </div>
                 <div class="flex items-center gap-4">
                     <input class="w-6 h-6 border-heavy border-primary text-secondary focus:ring-0 rounded-none" id="terms" required type="checkbox"/>
                     <label class="font-caption text-caption uppercase cursor-pointer" for="terms">IK GA AKKOORD MET DE VOORWAARDEN EN DE PRIVACY POLICY</label>
@@ -548,6 +574,36 @@
                     </div>
                 </div>
             </form>
+            <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-secondary">schedule</span>
+                    <div>
+                        <p class="font-label-caps text-label-caps mb-1">BINNEN 48 UUR</p>
+                        <p class="font-caption text-caption">We reageren binnen twee dagen op je aanvraag.</p>
+                    </div>
+                </div>
+                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-secondary">payments</span>
+                    <div>
+                        <p class="font-label-caps text-label-caps mb-1">AANBETALING</p>
+                        <p class="font-caption text-caption">Je afspraak wordt vastgelegd met een aanbetaling.</p>
+                    </div>
+                </div>
+                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-secondary">badge</span>
+                    <div>
+                        <p class="font-label-caps text-label-caps mb-1">MIN. 18 JAAR</p>
+                        <p class="font-caption text-caption">Neem een geldig legitimatiebewijs mee.</p>
+                    </div>
+                </div>
+                <div class="border-heavy border-primary bg-white p-5 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-secondary">image</span>
+                    <div>
+                        <p class="font-label-caps text-label-caps mb-1">REFERENTIES</p>
+                        <p class="font-caption text-caption">Stuur referentiebeelden mee voor je idee.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
@@ -730,8 +786,10 @@
         dot.addEventListener('click', () => { goToSlide(parseInt(dot.dataset.index, 10)); startAuto(); });
     });
 
-    carousel.addEventListener('mouseenter', stopAuto);
-    carousel.addEventListener('mouseleave', startAuto);
+    // Pauzeer alleen bij hover over de beelden zelf, niet over de pijlen/stipjes
+    const carouselViewport = track.parentElement;
+    carouselViewport.addEventListener('mouseenter', stopAuto);
+    carouselViewport.addEventListener('mouseleave', startAuto);
 
     // Recalc op resize
     window.addEventListener('resize', () => { applyTransform(false); refreshIndicators(); });
@@ -809,6 +867,20 @@
     const form = document.getElementById('booking-form');
     const formError = document.getElementById('form-error');
     const formSuccess = document.getElementById('form-success');
+    const attachment = document.getElementById('attachment');
+    const attachmentLabel = document.getElementById('attachment-label');
+
+    // Toon gekozen bestandsnamen in het uploadveld
+    attachment.addEventListener('change', () => {
+        const files = Array.from(attachment.files);
+        if (files.length === 0) {
+            attachmentLabel.textContent = 'KIES AFBEELDINGEN…';
+        } else if (files.length === 1) {
+            attachmentLabel.textContent = files[0].name;
+        } else {
+            attachmentLabel.textContent = `${files.length} BESTANDEN GEKOZEN`;
+        }
+    });
 
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -826,9 +898,16 @@
         }
         formError.classList.add('hidden');
 
+        const files = Array.from(attachment.files);
+        let attachmentLine = '';
+        if (files.length > 0) {
+            const names = files.map(f => f.name).join(', ');
+            attachmentLine = `\nReferentiebeelden (voeg bij in deze e-mail): ${names}\n`;
+        }
+
         const subject = encodeURIComponent(`Consult aanvraag van ${name}`);
         const body = encodeURIComponent(
-            `Naam: ${name}\nEmail: ${email}\n\nProject:\n${description}\n`
+            `Naam: ${name}\nEmail: ${email}\n\nProject:\n${description}\n${attachmentLine}`
         );
         window.location.href = `mailto:bungamelati.tattoo@gmail.com?subject=${subject}&body=${body}`;
         formSuccess.classList.add('show');
